@@ -1,29 +1,24 @@
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/google/oauth2/service_account.py", line 457, in _perform_refresh_token
-    access_token, expiry, _ = _client.jwt_grant(
-                              ~~~~~~~~~~~~~~~~~^
-        request, self._token_uri, assertion
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/google/oauth2/_client.py", line 303, in jwt_grant
-    response_data = _token_endpoint_request(
-        request,
-    ...<5 lines>...
-        },
-    )
-  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/google/oauth2/_client.py", line 274, in _token_endpoint_request
-    _handle_error_response(response_data, retryable_error)
-    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/google/oauth2/_client.py", line 69, in _handle_error_response
-    raise exceptions.RefreshError(
-        error_details, response_data, retryable=retryable_error
-    )
-google.auth.exceptions.RefreshError: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'})
+Downloading urllib3-2.6.3-py3-none-any.whl (131 kB)
+Downloading certifi-2026.2.25-py3-none-any.whl (153 kB)
+Downloading rsa-4.9.1-py3-none-any.whl (34 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading tzlocal-5.3.1-py3-none-any.whl (18 kB)
+Downloading werkzeug-3.1.7-py3-none-any.whl (226 kB)
+Downloading anyio-4.13.0-py3-none-any.whl (114 kB)
+Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+Installing collected packages: pytz, urllib3, tzlocal, six, pyparsing, pycparser, pyasn1, oauthlib, MarkupSafe, itsdangerous, idna, h11, click, charset_normalizer, certifi, blinker, Werkzeug, rsa, requests, pyasn1-modules, Jinja2, httplib2, httpcore, cffi, apscheduler, anyio, requests-oauthlib, oauth2client, httpx, Flask, cryptography, python-telegram-bot, google-auth, google-auth-oauthlib, gspread
+Successfully installed Flask-3.0.3 Jinja2-3.1.6 MarkupSafe-3.0.3 Werkzeug-3.1.7 anyio-4.13.0 apscheduler-3.10.4 blinker-1.9.0 certifi-2026.2.25 cffi-2.0.0 charset_normalizer-3.4.6 click-8.3.1 cryptography-46.0.6 google-auth-2.49.1 google-auth-oauthlib-1.3.1 gspread-6.1.2 h11-0.16.0 httpcore-1.0.9 httplib2-0.31.2 httpx-0.28.1 idna-3.11 itsdangerous-2.2.0 oauth2client-4.1.3 oauthlib-3.3.1 pyasn1-0.6.3 pyasn1-modules-0.4.2 pycparser-3.0 pyparsing-3.3.2 python-telegram-bot-21.6 pytz-2026.1.post1 requests-2.33.1 requests-oauthlib-2.0.0 rsa-4.9.1 six-1.17.0 tzlocal-5.3.1 urllib3-2.6.3
+[notice] A new release of pip is available: 25.1.1 -> 26.0.1
+[notice] To update, run: pip install --upgrade pip
+==> Uploading build...
+==> Uploaded in 10.0s. Compression took 3.5s
+==> Build successful 🎉
+==> Deploying...
+==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
 ==> Running 'python shibir_bot.py'
  * Serving Flask app 'shibir_bot'
  * Debug mode: off
-2026-04-01 22:19:01,525 - INFO - HTTP Request: POST https://api.telegram.org/bot8762483955:AAGoDvJQjO1YQ4eRwJh2WQE_I2TcArshU68/getMe "HTTP/1.1 200 OK"
+2026-04-01 22:34:41,890 - INFO - HTTP Request: POST https://api.telegram.org/bot8762483955:AAGoDvJQjO1YQ4eRwJh2WQE_I2TcArshU68/getMe "HTTP/1.1 200 OK"
 Traceback (most recent call last):
   File "/opt/render/project/src/shibir_bot.py", line 669, in <module>
     main()
@@ -98,81 +93,7 @@ Traceback (most recent call last):
         error_details, response_data, retryable=retryable_error
     )
 google.auth.exceptions.RefreshError: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'})
+==> Exited with status 1
+==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
 ==> Running 'python shibir_bot.py'
- * Serving Flask app 'shibir_bot'
- * Debug mode: off
-2026-04-01 22:19:50,394 - INFO - HTTP Request: POST https://api.telegram.org/bot8762483955:AAGoDvJQjO1YQ4eRwJh2WQE_I2TcArshU68/getMe "HTTP/1.1 200 OK"
-Traceback (most recent call last):
-  File "/opt/render/project/src/shibir_bot.py", line 669, in <module>
-    main()
-    ~~~~^^
-  File "/opt/render/project/src/shibir_bot.py", line 665, in main
-    app.run_polling(drop_pending_updates=True, allowed_updates=Update.ALL_TYPES)
-    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/telegram/ext/_application.py", line 881, in run_polling
-    return self.__run(
-           ~~~~~~~~~~^
-        updater_coroutine=self.updater.start_polling(
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    ...<12 lines>...
-        stop_signals=stop_signals,
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/telegram/ext/_application.py", line 1081, in __run
-    loop.run_until_complete(self.post_init(self))
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/render/project/python/Python-3.13.5/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
-    return future.result()
-           ~~~~~~~~~~~~~^^
-  File "/opt/render/project/src/shibir_bot.py", line 633, in startup_task
-    await load_users_initial()
-  File "/opt/render/project/src/shibir_bot.py", line 174, in load_users_initial
-    _, user_sheet, _, _, _ = get_sheets()
-                             ~~~~~~~~~~^^
-  File "/opt/render/project/src/shibir_bot.py", line 152, in get_sheets
-    spreadsheet = client.open(SHEET_NAME)
-  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/gspread/client.py", line 132, in open
-    spreadsheet_files, response = self._list_spreadsheet_files(title, folder_id)
-                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
-  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/gspread/client.py", line 105, in _list_spreadsheet_files
-    response = self.http_client.request("get", url, params=params)
-  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/gspread/http_client.py", line 114, in request
-    response = self.session.request(
-        method=method,
-    ...<6 lines>...
-        timeout=self.timeout,
-    )
-  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/google/auth/transport/requests.py", line 538, in request
-    self.credentials.before_request(auth_request, method, url, request_headers)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/google/auth/credentials.py", line 230, in before_request
-    self._blocking_refresh(request)
-    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/google/auth/credentials.py", line 193, in _blocking_refresh
-    self.refresh(request)
-    ~~~~~~~~~~~~^^^^^^^^^
-  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/google/auth/credentials.py", line 367, in refresh
-    self._perform_refresh_token(request)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/google/oauth2/service_account.py", line 457, in _perform_refresh_token
-    access_token, expiry, _ = _client.jwt_grant(
-                              ~~~~~~~~~~~~~~~~~^
-        request, self._token_uri, assertion
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/google/oauth2/_client.py", line 303, in jwt_grant
-    response_data = _token_endpoint_request(
-        request,
-    ...<5 lines>...
-        },
-    )
-  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/google/oauth2/_client.py", line 274, in _token_endpoint_request
-    _handle_error_response(response_data, retryable_error)
-    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/google/oauth2/_client.py", line 69, in _handle_error_response
-    raise exceptions.RefreshError(
-        error_details, response_data, retryable=retryable_error
-    )
-google.auth.exceptions.RefreshError: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'})
+Need better ways
