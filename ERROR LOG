@@ -1,9 +1,29 @@
-==> Deploying...
-==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/google/oauth2/service_account.py", line 457, in _perform_refresh_token
+    access_token, expiry, _ = _client.jwt_grant(
+                              ~~~~~~~~~~~~~~~~~^
+        request, self._token_uri, assertion
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/google/oauth2/_client.py", line 303, in jwt_grant
+    response_data = _token_endpoint_request(
+        request,
+    ...<5 lines>...
+        },
+    )
+  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/google/oauth2/_client.py", line 274, in _token_endpoint_request
+    _handle_error_response(response_data, retryable_error)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/render/project/src/.venv/lib/python3.13/site-packages/google/oauth2/_client.py", line 69, in _handle_error_response
+    raise exceptions.RefreshError(
+        error_details, response_data, retryable=retryable_error
+    )
+google.auth.exceptions.RefreshError: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'})
 ==> Running 'python shibir_bot.py'
  * Serving Flask app 'shibir_bot'
  * Debug mode: off
-2026-04-01 21:42:00,495 - INFO - HTTP Request: POST https://api.telegram.org/bot8762483955:AAGoDvJQjO1YQ4eRwJh2WQE_I2TcArshU68/getMe "HTTP/1.1 200 OK"
+2026-04-01 22:19:01,525 - INFO - HTTP Request: POST https://api.telegram.org/bot8762483955:AAGoDvJQjO1YQ4eRwJh2WQE_I2TcArshU68/getMe "HTTP/1.1 200 OK"
 Traceback (most recent call last):
   File "/opt/render/project/src/shibir_bot.py", line 669, in <module>
     main()
@@ -78,12 +98,10 @@ Traceback (most recent call last):
         error_details, response_data, retryable=retryable_error
     )
 google.auth.exceptions.RefreshError: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'})
-==> Exited with status 1
-==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
 ==> Running 'python shibir_bot.py'
  * Serving Flask app 'shibir_bot'
  * Debug mode: off
-2026-04-01 21:42:22,450 - INFO - HTTP Request: POST https://api.telegram.org/bot8762483955:AAGoDvJQjO1YQ4eRwJh2WQE_I2TcArshU68/getMe "HTTP/1.1 200 OK"
+2026-04-01 22:19:50,394 - INFO - HTTP Request: POST https://api.telegram.org/bot8762483955:AAGoDvJQjO1YQ4eRwJh2WQE_I2TcArshU68/getMe "HTTP/1.1 200 OK"
 Traceback (most recent call last):
   File "/opt/render/project/src/shibir_bot.py", line 669, in <module>
     main()
